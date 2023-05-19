@@ -6,6 +6,7 @@ public class Cube : Interactable
 {
     [SerializeField] 
     private GameObject cube;
+    private bool up;
    
     void Start()
     {
@@ -14,6 +15,7 @@ public class Cube : Interactable
 
     protected override void Interact()
     {
-        Debug.Log("Interaction with" + gameObject.name);
+        up = !up;
+        this.GetComponent<Animator>().SetBool("IsUP", up);
     }
 }

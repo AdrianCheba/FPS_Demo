@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 384937474}
   - component: {fileID: 384937473}
   - component: {fileID: 384937477}
+  - component: {fileID: 384937478}
   m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -331,6 +332,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: "Sze\u015Bcian"
+  cube: {fileID: 0}
+--- !u!95 &384937478
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384937472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 798737fdb3b68094e96522cca555af2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +930,7 @@ GameObject:
   - component: {fileID: 1497320542}
   - component: {fileID: 1497320541}
   - component: {fileID: 1497320540}
+  - component: {fileID: 1497320544}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -993,6 +1016,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1497320544
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497320539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1575034260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 223280149091162577, guid: be03b2dd3e0d42b43a1cb3d858f188ba,
