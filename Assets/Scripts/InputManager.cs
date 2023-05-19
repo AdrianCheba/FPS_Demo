@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputMenager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private PlayerInput.OnFootActions onFoot;
     private PlayerMovement playerMovement;
     private PlayerLook playerLook;
+    public PlayerInput.OnFootActions onFoot;
 
     void Awake()
     {

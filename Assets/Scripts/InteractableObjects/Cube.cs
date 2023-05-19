@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Cube : Interactable
 {
-    // Start is called before the first frame update
+    [SerializeField] 
+    private GameObject cube;
+   
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -20,6 +16,4 @@ public class Cube : Interactable
     {
         Debug.Log("Interaction with" + gameObject.name);
     }
-
-
 }
