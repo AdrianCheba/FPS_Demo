@@ -33,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(hit.collider.GetComponent<Interactable>().promptMessage);
-                float fillSpeed = 4.0f * Time.deltaTime;
+                float fillSpeed = 5.0f * Time.deltaTime;
                 playerUI.HealthBarUpdate(hit.collider.GetComponent<Interactable>().currentHP, true, fillSpeed);
                 if (inputManager.onFoot.Interact.triggered)
                 {
