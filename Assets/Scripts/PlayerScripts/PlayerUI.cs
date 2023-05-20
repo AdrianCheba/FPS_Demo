@@ -22,13 +22,13 @@ public class PlayerUI : MonoBehaviour
         promptText.text = promptMessage;
     }
 
-    public void HealthBarUpdate(float healthPoints, bool wizable, float fillSpeed)
+    public void HealthBarUpdate(float healthPoints, float maxHP, bool wizable, float fillSpeed)
     {
         if (wizable) 
         { 
             healthBar.gameObject.SetActive(true);
-            healthBar.GetComponent<Image>().fillAmount = Mathf.Lerp(healthBar.GetComponent<Image>().fillAmount, healthPoints / 1, fillSpeed);
-            ColorChanger(healthPoints);
+            healthBar.GetComponent<Image>().fillAmount = Mathf.Lerp(healthBar.GetComponent<Image>().fillAmount, healthPoints / maxHP, fillSpeed);
+            ColorChanger(healthPoints, maxHP);
         }
         else
         {
@@ -36,9 +36,9 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    private void ColorChanger(float healthPoints)
+    private void ColorChanger(float healthPoints, float maxHP)
     {
-        Color healtColor = Color.Lerp(Color.red, Color.green, (healthPoints / 1));
+        Color healtColor = Color.Lerp(Color.red, Color.green, (healthPoints / maxHP));
         healthBar.GetComponent<Image>().color = healtColor;
     }
 }

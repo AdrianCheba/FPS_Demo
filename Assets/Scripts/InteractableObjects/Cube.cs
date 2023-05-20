@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Cube : Interactable
 {
-    [SerializeField] 
-   // private GameObject cube;
-    private bool up;
+   
 
     public 
 
@@ -19,9 +17,7 @@ public class Cube : Interactable
 
     protected override void Interact()
     {
-        up = !up;
-       // GetComponent<Animator>().SetBool("IsUP", up);
-        currentHP -= 0.12f;
-
+        maxHP = 1.2f;
+        currentHP -= 0.151f;
     }
 }
