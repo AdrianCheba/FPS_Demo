@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class Cube : Interactable
 {
-   
-
-    public 
-
-   
     void Start()
     {
 
