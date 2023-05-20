@@ -11,12 +11,14 @@ public class PlayerInteract : MonoBehaviour
 
     private PlayerUI playerUI;
     private InputManager inputManager;
+    public Weapon weapon;
 
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;  
-        playerUI= GetComponent<PlayerUI>();
+        playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
+        weapon = weapon.GetComponent<Weapon>();
     }
 
  
@@ -38,9 +40,16 @@ public class PlayerInteract : MonoBehaviour
                 float fillSpeed = 5.0f * Time.deltaTime;
                 playerUI.HealthBarUpdate(hit.collider.GetComponent<Interactable>().currentHP, hit.collider.GetComponent<Interactable>().maxHP, true, fillSpeed);
 
-                if (inputManager.onFoot.Interact.triggered)
+                if (weapon.name == "Pistol" && hit.collider.tag == "barrel") 
                 {
-                    interactable.BaseInteraction();
+                    if (inputManager.onFoot.Interact.triggered)
+                    {
+                        interactable.BaseInteraction();
+                    }
+                }
+                else
+                {
+                    playerUI.UpdateText("Z tej broni nie rozwalisz beczki");
                 }
             }
         }

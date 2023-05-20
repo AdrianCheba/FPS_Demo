@@ -12,7 +12,7 @@ public class Cube : Interactable
 
     protected override void Interact()
     {
-        maxHP = 1.2f;
-        currentHP -= 0.151f;
+        maxHP = 120f;
+        currentHP -= 15.1f;
     }
 }

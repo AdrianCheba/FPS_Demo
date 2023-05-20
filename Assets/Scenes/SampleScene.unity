@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 7133336745682130024, guid: 76114a16673c2904cb2cb7053a3ddc10,
         type: 3}
       propertyPath: m_Name
-      value: Pistol_00
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 7617103563624255186, guid: 76114a16673c2904cb2cb7053a3ddc10,
         type: 3}
@@ -460,7 +460,7 @@ PrefabInstance:
     - target: {fileID: 3157565929852043342, guid: cc4156adf6614cb4693b57fd602cf0b9,
         type: 3}
       propertyPath: m_Name
-      value: Rifle_00
+      value: Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 3157565929852043342, guid: cc4156adf6614cb4693b57fd602cf0b9,
         type: 3}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 384937478}
   m_Layer: 6
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,8 +581,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: "Sze\u015Bcian"
-  maxHP: 1.2
-  currentHP: 1.2
+  maxHP: 100
+  currentHP: 100
 --- !u!95 &384937478
 Animator:
   serializedVersion: 4
@@ -964,8 +964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: "Inny sze\u015Bcian"
-  maxHP: 1.2
-  currentHP: 1.2
+  maxHP: 100
+  currentHP: 100
 --- !u!1 &485797253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c398f5418bd2f04b81e1c57ed67670e,
@@ -1516,6 +1516,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+  weapon: {fileID: 2089914209}
 --- !u!114 &1575034273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,6 +1807,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2089914207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7133336745682130024, guid: 76114a16673c2904cb2cb7053a3ddc10,
+    type: 3}
+  m_PrefabInstance: {fileID: 245054321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089914209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089914207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35096298279cd1d47bc20d20dc2530e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: 
 --- !u!1001 &223280149785795976
 PrefabInstance:
   m_ObjectHideFlags: 0
