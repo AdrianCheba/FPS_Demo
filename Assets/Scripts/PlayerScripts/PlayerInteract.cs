@@ -26,12 +26,15 @@ public class PlayerInteract : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * distance);
         RaycastHit hit;
         playerUI.UpdateText(string.Empty);
+        playerUI.HealthBarUpdate(0, false,0);
         if(Physics.Raycast(ray, out hit, distance, mask))
         {
             if (hit.collider.GetComponent<Interactable>())
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(hit.collider.GetComponent<Interactable>().promptMessage);
+                float fillSpeed = 4.0f * Time.deltaTime;
+                playerUI.HealthBarUpdate(hit.collider.GetComponent<Interactable>().currentHP, true, fillSpeed);
                 if (inputManager.onFoot.Interact.triggered)
                 {
                     interactable.BaseInteraction();
