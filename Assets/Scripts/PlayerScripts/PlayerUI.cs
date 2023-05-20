@@ -28,11 +28,17 @@ public class PlayerUI : MonoBehaviour
         { 
             healthBar.gameObject.SetActive(true);
             healthBar.GetComponent<Image>().fillAmount = Mathf.Lerp(healthBar.GetComponent<Image>().fillAmount, healthPoints / 1, fillSpeed);
+            ColorChanger(healthPoints);
         }
         else
         {
             healthBar.gameObject.SetActive(false);
         }
+    }
 
+    private void ColorChanger(float healthPoints)
+    {
+        Color healtColor = Color.Lerp(Color.red, Color.green, (healthPoints / 1));
+        healthBar.GetComponent<Image>().color = healtColor;
     }
 }

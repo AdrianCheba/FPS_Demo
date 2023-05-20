@@ -21,7 +21,7 @@ public class Cube : Interactable
     {
         up = !up;
        // GetComponent<Animator>().SetBool("IsUP", up);
-        currentHP -= 0.1f;
+        currentHP -= 0.12f;
 
     }
 }
