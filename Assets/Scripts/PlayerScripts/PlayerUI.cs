@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI promptText;
-    private GameObject healthBar;
+    public GameObject healthBar;
 
     void Start()
     {
@@ -26,13 +26,13 @@ public class PlayerUI : MonoBehaviour
     {
         if (wizable) 
         { 
-            healthBar.gameObject.SetActive(true);
+            healthBar.SetActive(true);
             healthBar.GetComponent<Image>().fillAmount = Mathf.Lerp(healthBar.GetComponent<Image>().fillAmount, healthPoints / maxHP, fillSpeed);
             ColorChanger(healthPoints, maxHP);
         }
         else
         {
-            healthBar.gameObject.SetActive(false);
+            healthBar.SetActive(false);
         }
     }
 

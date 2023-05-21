@@ -14,5 +14,9 @@ public class Cube : Interactable
     {
         maxHP = 120f;
         currentHP -= 15.1f;
+        if(currentHP <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

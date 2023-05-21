@@ -11,14 +11,13 @@ public class PlayerInteract : MonoBehaviour
 
     private PlayerUI playerUI;
     private InputManager inputManager;
-    public Weapon weapon;
-
+    public GameObject weapon;
+  
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;  
         playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
-        weapon = weapon.GetComponent<Weapon>();
     }
 
  
@@ -40,17 +39,25 @@ public class PlayerInteract : MonoBehaviour
                 float fillSpeed = 5.0f * Time.deltaTime;
                 playerUI.HealthBarUpdate(hit.collider.GetComponent<Interactable>().currentHP, hit.collider.GetComponent<Interactable>().maxHP, true, fillSpeed);
 
-                if (weapon.name == "Pistol" && hit.collider.tag == "barrel") 
+                if(hit.collider.tag == "PowerUP")
                 {
+                    playerUI.healthBar.SetActive(false);
+                    weapon = GameObject.FindGameObjectWithTag("Weapons");
+
+                    if (weapon.name == "Pistol")
+                    {
+                        playerUI.UpdateText(hit.collider.name);
+                    }
+                    else
+                    {
+                        playerUI.UpdateText(hit.collider.name + ": " + "Buffs are only available for the Pistol :/");
+                    }
+                }
+
                     if (inputManager.onFoot.Interact.triggered)
                     {
                         interactable.BaseInteraction();
                     }
-                }
-                else
-                {
-                    playerUI.UpdateText("Z tej broni nie rozwalisz beczki");
-                }
             }
         }
     }
