@@ -11,11 +11,11 @@ public class PowerUP : Interactable
     {
         if(other.tag == "Player")
         {
-            pistol = GameObject.FindGameObjectWithTag("Weapons");
+            pistol = GameObject.FindGameObjectWithTag("Weapon");
 
             if (pistol.name == "Pistol")
             {
-                pistol.GetComponent<WeaponsData>().powerUP = this.gameObject.name;
+                pistol.GetComponent<WeaponsData>().powerUP = gameObject.name;
                 this.gameObject.SetActive(false);
             }
         }

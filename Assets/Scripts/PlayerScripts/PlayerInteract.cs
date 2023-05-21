@@ -42,7 +42,7 @@ public class PlayerInteract : MonoBehaviour
                 if(hit.collider.tag == "PowerUP")
                 {
                     playerUI.healthBar.SetActive(false);
-                    weapon = GameObject.FindGameObjectWithTag("Weapons");
+                    weapon = GameObject.FindGameObjectWithTag("Weapon");
 
                     if (weapon.name == "Pistol")
                     {

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - PowerUP
   - Barrel
-  - Weapons
+  - Weapon
   layers:
   - Default
   - TransparentFX

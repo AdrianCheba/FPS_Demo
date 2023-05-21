@@ -14,6 +14,7 @@ public class PlayerUI : MonoBehaviour
     {
         healthBar = GameObject.Find("HealthBar");
         healthBar.SetActive(false);
+        Cursor.visible = false;
     }
 
     
