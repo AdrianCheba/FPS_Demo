@@ -20,6 +20,7 @@ public class WoodCrate: Interactable
         if (weapon.GetComponent<WeaponsData>().aspect1 == "Wood" || weapon.GetComponent<WeaponsData>().aspect2 == "Wood")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
+            weapon.GetComponent<WeaponsData>().ammo--;
 
             if (currentHP <= 0)
             {

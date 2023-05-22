@@ -20,6 +20,7 @@ public class Concrete : Interactable
         if (weapon.GetComponent<WeaponsData>().aspect1 == "Concrete" || weapon.GetComponent<WeaponsData>().aspect2 == "Concrete")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
+            weapon.GetComponent<WeaponsData>().ammo--;
 
             if (currentHP <= 0)
             {

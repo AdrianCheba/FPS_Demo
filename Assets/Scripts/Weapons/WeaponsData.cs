@@ -6,8 +6,7 @@ public class WeaponsData : MonoBehaviour
 {
     public string weaponName;
     public float damage;
-    public float fireRate;
-    public float reloadTime;
+    public int ammo;
     public bool reloading;
     public string aspect1;
     public string aspect2;

@@ -21,6 +21,7 @@ public class FireBarrel : Interactable
         if (weapon.GetComponent<WeaponsData>().aspect1 == "Fire" || weapon.GetComponent<WeaponsData>().aspect2 == "Fire" || weapon.GetComponent<WeaponsData>().powerUP == "Fire PowerUP")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
+            weapon.GetComponent<WeaponsData>().ammo--;
 
             if (currentHP <= 0)
             {

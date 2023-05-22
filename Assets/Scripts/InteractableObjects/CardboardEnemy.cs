@@ -17,11 +17,10 @@ public class CardboardEnemy: Interactable
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon");
 
-      
-
         if (weapon.GetComponent<WeaponsData>().aspect1 == "Cardboard" || weapon.GetComponent<WeaponsData>().aspect2 == "Cardboard")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
+            weapon.GetComponent<WeaponsData>().ammo--;
 
             if (currentHP <= 0)
             {
