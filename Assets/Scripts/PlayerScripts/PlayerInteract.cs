@@ -12,19 +12,21 @@ public class PlayerInteract : MonoBehaviour
     private PlayerUI playerUI;
     private InputManager inputManager;
     public GameObject weapon;
-  
+    
+    public RaycastHit hit;
+
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;  
         playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
+
     }
 
 
     void Update()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-        RaycastHit hit;
 
         playerUI.UpdatePowerUPText(string.Empty);
         playerUI.UpdateText(string.Empty);
@@ -45,6 +47,7 @@ public class PlayerInteract : MonoBehaviour
                     if (inputManager.onFoot.Interact.triggered)
                     {
                         interactable.BaseInteraction();
+                       
                     }
                 }
 

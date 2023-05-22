@@ -21,6 +21,7 @@ public class Concrete : Interactable
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
             weapon.GetComponent<WeaponsData>().ammo--;
+            weapon.GetComponent<WeaponShoot>().Shoot();
 
             if (currentHP <= 0)
             {

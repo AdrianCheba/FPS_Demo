@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Target
   - Ground
+  - ImpactEffect
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,8 @@ public class ToxicBarrel : Interactable
 {
     public GameObject weapon;
     public GameObject player;
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -21,6 +23,9 @@ public class ToxicBarrel : Interactable
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
             weapon.GetComponent<WeaponsData>().ammo--;
+            weapon.GetComponent<WeaponShoot>().Shoot();
+
+            
 
             if (currentHP <= 0)
             {
