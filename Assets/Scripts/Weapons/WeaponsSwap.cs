@@ -6,36 +6,43 @@ public class WeaponsSwap : MonoBehaviour
 {
     public GameObject[] weapons;
     public int currenWeapon = 0;
+    private bool disableWeapons = true;
 
     private void Awake()
     {
         weapons = GameObject.FindGameObjectsWithTag("Weapon");
-        weapons[1].SetActive(false);
-        weapons[2].SetActive(false);
+        weapons[0].SetActive(true);
+    }
 
+    private void Update()
+    {
+        if (disableWeapons)
+        {
+            for (int i = 1; i < weapons.Length; i++)
+            {
+                weapons[i].SetActive(false);
+            }
+            disableWeapons= false;
+        }
     }
 
     public void SwapWeapon()
     {
-       switch (currenWeapon)
+        if(currenWeapon == 0)
         {
-            case 0:
-                weapons[0].SetActive(true);
-                weapons[2].SetActive(false);
-                currenWeapon++;
-                break;
-            case 1:
-                weapons[1].SetActive(true);
-                weapons[0].SetActive(false);
-                currenWeapon++;
-                break;
-            case 2:
-                weapons[2].SetActive(true);
-                weapons[1].SetActive(false);
-                currenWeapon++;
-                break;
+            weapons[0].SetActive(true);
+            weapons[weapons.Length - 1].SetActive(false);
 
+            currenWeapon++;
         }
+       else if(currenWeapon > 0)
+        {
+            weapons[currenWeapon - 1].SetActive(false);
+            weapons[currenWeapon].SetActive(true);
+
+            currenWeapon++;
+        }
+
        
         if(currenWeapon >= weapons.Length) currenWeapon = 0;
     }

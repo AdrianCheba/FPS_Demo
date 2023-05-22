@@ -20,16 +20,17 @@ public class PlayerInteract : MonoBehaviour
         inputManager = GetComponent<InputManager>();
     }
 
- 
+
     void Update()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hit;
 
+        playerUI.UpdatePowerUPText(string.Empty);
         playerUI.UpdateText(string.Empty);
-        playerUI.HealthBarUpdate(0, 0,false,0);
+        playerUI.HealthBarUpdate(0, 0, false, 0);
 
-        if(Physics.Raycast(ray, out hit, distance, mask))
+        if (Physics.Raycast(ray, out hit, distance, mask))
         {
             if (hit.collider.GetComponent<Interactable>())
             {
@@ -39,7 +40,17 @@ public class PlayerInteract : MonoBehaviour
                 float fillSpeed = 5.0f * Time.deltaTime;
                 playerUI.HealthBarUpdate(hit.collider.GetComponent<Interactable>().currentHP, hit.collider.GetComponent<Interactable>().maxHP, true, fillSpeed);
 
-                if(hit.collider.tag == "PowerUP")
+                if (hit.collider.tag == "Target")
+                {
+                    if (inputManager.onFoot.Interact.triggered)
+                    {
+                        interactable.BaseInteraction();
+                    }
+                }
+
+
+
+                if (hit.collider.tag == "PowerUP")
                 {
                     playerUI.healthBar.SetActive(false);
                     weapon = GameObject.FindGameObjectWithTag("Weapon");
@@ -50,15 +61,11 @@ public class PlayerInteract : MonoBehaviour
                     }
                     else
                     {
-                        playerUI.UpdateText(hit.collider.name + ": " + "Buffs are only available for the Pistol :/");
+                        playerUI.UpdatePowerUPText("Buffs are only available for the Pistol");
                     }
                 }
-
-                    if (inputManager.onFoot.Interact.triggered)
-                    {
-                        interactable.BaseInteraction();
-                    }
             }
         }
     }
 }
+

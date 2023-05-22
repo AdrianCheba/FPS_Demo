@@ -8,6 +8,10 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI promptText;
+    [SerializeField]
+    private TextMeshProUGUI promptHelpText;
+    [SerializeField]
+    private TextMeshProUGUI promptPowerUPText;
     public GameObject healthBar;
 
     void Start()
@@ -21,6 +25,15 @@ public class PlayerUI : MonoBehaviour
     public void UpdateText(string promptMessage)
     {
         promptText.text = promptMessage;
+    }   
+    public void UpdateHelpText(string promptMessage)
+    {
+        promptHelpText.text = promptMessage;
+    }  
+    
+    public void UpdatePowerUPText(string promptMessage)
+    {
+        promptPowerUPText.text = promptMessage;
     }
 
     public void HealthBarUpdate(float healthPoints, float maxHP, bool wizable, float fillSpeed)
