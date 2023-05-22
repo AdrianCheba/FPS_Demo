@@ -17,10 +17,14 @@ public class PowerUP : Interactable
             {
                 pistol.GetComponent<WeaponsData>().powerUP = gameObject.name;
                 this.gameObject.SetActive(false);
+                Invoke("Restore", 3);
             }
         }
     }
 
-
+    private void Restore()
+    {
+        this.gameObject.SetActive(true);
+    }
 
 }
