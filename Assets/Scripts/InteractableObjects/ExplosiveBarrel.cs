@@ -42,11 +42,8 @@ public class ExplosiveBarrel: Interactable
 
             if (currentHP <= 0)
             {
-
-                Destroy(gameObject);
-                
                 MakeEffects();
-
+                gameObject.SetActive(false);
             }
         }
         else

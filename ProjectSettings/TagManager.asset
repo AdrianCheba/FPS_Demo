@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - PowerUP
-  - Barrel
   - Weapon
   - Target
   - Ground
   - ImpactEffect
+  - ExplosiveBarrelEffect
   layers:
   - Default
   - TransparentFX
