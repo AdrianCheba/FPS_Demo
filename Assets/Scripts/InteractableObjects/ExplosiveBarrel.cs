@@ -1,19 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireBarrel : Interactable
+public class ExplosiveBarrel: Interactable
 {
-    public GameObject weapon;
-    public GameObject player;
+    [SerializeField]
+     GameObject weapon;
+    [SerializeField]
+     GameObject player;
+    private DestroyInterface[] scripts;
+    private List<DestroyInterface> destroyEffects = new();
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         maxHP = 75f;
         currentHP = 75f;
+        scripts = GetComponents<DestroyInterface>();
+
+        foreach (DestroyInterface obj in scripts)
+        {
+            
+            AddEffects(obj);
+        }
+       
     }
+
+
     protected override void Interact()
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon");
@@ -26,7 +42,11 @@ public class FireBarrel : Interactable
 
             if (currentHP <= 0)
             {
-                this.gameObject.SetActive(false);
+
+                Destroy(gameObject);
+                
+                MakeEffects();
+
             }
         }
         else
@@ -41,4 +61,18 @@ public class FireBarrel : Interactable
     {
         player.GetComponent<PlayerUI>().UpdateHelpText(string.Empty);
     }
+
+    public void AddEffects(DestroyInterface effect)
+    {
+        destroyEffects.Add(effect);
+    }
+
+    public void MakeEffects()
+    {
+        foreach (var effect in destroyEffects)
+        {
+            effect.MakeEffect();
+        }
+    }
+
 }

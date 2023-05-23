@@ -26,6 +26,7 @@ public class Concrete : Interactable
             if (currentHP <= 0)
             {
                 this.gameObject.SetActive(false);
+                
             }
         }
         else
