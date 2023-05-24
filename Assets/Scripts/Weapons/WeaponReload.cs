@@ -10,13 +10,19 @@ public class WeaponReload : MonoBehaviour
     int currentAmmo;
     public bool isReloading = false;
 
-    public Animator animator;
+    public GameObject animator;
 
     void Start()
     {
         maxAmmo = GetComponent<WeaponsData>().ammo;
         currentAmmo = maxAmmo;
 
+    }
+
+    private void OnEnable()
+    {
+        isReloading = false;
+        animator.GetComponent<Animator>().SetBool("IsReloading", false);
     }
 
     // Update is called once per frame
@@ -35,11 +41,13 @@ public class WeaponReload : MonoBehaviour
     {
         isReloading = true;
 
-        animator.SetBool("IsReloading", true);
-        
-        yield return new WaitForSeconds(GetComponent<WeaponsData>().reloadTime);
+        animator.GetComponent<Animator>().SetBool("IsReloading", true);
 
-        animator.SetBool("IsReloading", false);
+        animator.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(GetComponent<WeaponsData>().reloadTime - 0.25f);
+
+        animator.GetComponent<Animator>().SetBool("IsReloading", false);
 
         yield return new WaitForSeconds(0.25f);
 

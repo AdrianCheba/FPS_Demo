@@ -10,17 +10,20 @@ public class ExplosiveBarrelParticleSystem : MonoBehaviour, DestroyInterface
     private void Start()
     {
         particleSys.Stop();
+        particleSys.GetComponent<AudioSource>().Stop();
     }
 
     public void MakeEffect()
     {
-        Invoke("StopEffect", 1);
+        Invoke("StopEffect", 3f);
         particleSys.Play();
+        particleSys.GetComponent<AudioSource>().Play();
     }
 
     void StopEffect()
     {
         particleSys = GameObject.FindGameObjectWithTag("ExplosiveBarrelEffect").GetComponent<ParticleSystem>();
         particleSys.Stop();
+        particleSys.GetComponent<AudioSource>().Stop();
     }
  }

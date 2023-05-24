@@ -19,6 +19,7 @@ public class WeaponShoot : MonoBehaviour
     public void Shoot()
     {
         shootFlash.Play();
+        shootFlash.GetComponent<AudioSource>().Play();
         Instantiate(impactEffect, player.GetComponent<PlayerInteract>().hit.point, Quaternion.LookRotation(player.GetComponent<PlayerInteract>().hit.normal));
     }
 }
