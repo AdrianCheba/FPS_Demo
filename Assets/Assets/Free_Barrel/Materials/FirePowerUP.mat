@@ -52,7 +52,7 @@ Material:
     - _QueueOffset: 0
     - _Ripple_Slimness: 2
     - _Ripple_density: 12
-    - _Ripple_speed: 4
+    - _Ripple_speed: 3
     m_Colors:
     - _Main_Color: {r: 0.33018863, g: 0.004672473, b: 0.02586783, a: 0}
     - _Ripple_Color: {r: 0.6792453, g: 0.07085463, b: 0.03524386, a: 0}

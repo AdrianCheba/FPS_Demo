@@ -39,11 +39,11 @@ public class WeaponReload : MonoBehaviour
 
     IEnumerator Reload()
     {
-        isReloading = true;
-
-        animator.GetComponent<Animator>().SetBool("IsReloading", true);
-
         animator.GetComponent<AudioSource>().Play();
+
+        isReloading = true;
+             
+        animator.GetComponent<Animator>().SetBool("IsReloading", true);
 
         yield return new WaitForSeconds(GetComponent<WeaponsData>().reloadTime - 0.25f);
 
