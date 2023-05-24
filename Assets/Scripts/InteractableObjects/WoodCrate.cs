@@ -8,12 +8,23 @@ public class ToxicBarrel : Interactable
     public GameObject weapon;
     public GameObject player;
 
+    private DestroyInterface[] scripts;
+    private List<DestroyInterface> destroyEffects = new();
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         maxHP = 70f;
         currentHP = 70f;
+
+        scripts = GetComponents<DestroyInterface>();
+
+        foreach (DestroyInterface obj in scripts)
+        {
+
+            AddEffects(obj);
+        }
     }
     protected override void Interact()
     {
@@ -29,6 +40,7 @@ public class ToxicBarrel : Interactable
 
             if (currentHP <= 0)
             {
+                MakeEffects();
                 this.gameObject.SetActive(false);
             }
         }
@@ -43,5 +55,18 @@ public class ToxicBarrel : Interactable
     void ClearHelpText()
     {
         player.GetComponent<PlayerUI>().UpdateHelpText(string.Empty);
+    }
+
+    public void AddEffects(DestroyInterface effect)
+    {
+        destroyEffects.Add(effect);
+    }
+
+    public void MakeEffects()
+    {
+        foreach (var effect in destroyEffects)
+        {
+            effect.MakeEffect();
+        }
     }
 }

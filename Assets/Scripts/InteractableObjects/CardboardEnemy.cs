@@ -7,11 +7,24 @@ public class CardboardEnemy: Interactable
 {
     public GameObject weapon;
     public GameObject player;
+
+    [SerializeField]
+     DestroyInterface[] scripts;
+    private List<DestroyInterface> destroyEffects = new();
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         maxHP = 50f;
         currentHP = 50f;
+
+        scripts = GetComponents<DestroyInterface>();
+
+        foreach (DestroyInterface obj in scripts)
+        {
+
+            AddEffects(obj);
+        }
     }
     protected override void Interact()
     {
@@ -25,6 +38,7 @@ public class CardboardEnemy: Interactable
 
             if (currentHP <= 0)
             {
+                MakeEffects();
                 this.gameObject.SetActive(false);
             }
         }
@@ -39,5 +53,18 @@ public class CardboardEnemy: Interactable
     void ClearHelpText()
     {
         player.GetComponent<PlayerUI>().UpdateHelpText(string.Empty);
+    }
+
+    public void AddEffects(DestroyInterface effect)
+    {
+        destroyEffects.Add(effect);
+    }
+
+    public void MakeEffects()
+    {
+        foreach (var effect in destroyEffects)
+        {
+            effect.MakeEffect();
+        }
     }
 }
