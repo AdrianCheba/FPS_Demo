@@ -19,6 +19,8 @@ public class InputManager : MonoBehaviour
         playerLook = GetComponent<PlayerLook>();
         swapWeapon = GetComponent<WeaponSwap>();
         onFoot.Jump.performed += ctx => playerMovement.Jump();
+        onFoot.Sprint.performed += ctx => playerMovement.Sprint();
+        onFoot.Crouch.performed += ctx => playerMovement.Crouch();
         onFoot.WeaponSwap.performed += ctx => swapWeapon.SwapWeapon();
     }
 
