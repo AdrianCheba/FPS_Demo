@@ -14,6 +14,6 @@ public class ToxicBarrelDisablPowerUP: MonoBehaviour, DestroyInterface
 
     public void MakeEffect()
     {
-        powerUP.SetActive(false);
+        Destroy(powerUP);
     }
  }

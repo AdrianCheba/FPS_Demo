@@ -1486,7 +1486,7 @@ MonoBehaviour:
   weaponName: 
   damage: 17
   ammo: 30
-  reloading: 0
+  reloadTime: 1
   aspect1: Concrete
   aspect2: Toxic
   powerUP: 
@@ -1988,8 +1988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   damage: 15
-  ammo: 30
-  reloading: 0
+  ammo: 3
+  reloadTime: 1
   aspect1: Fire
   aspect2: Wood
   powerUP: 
@@ -7524,6 +7524,61 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &955032591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955032592}
+  - component: {fileID: 955032593}
+  m_Layer: 0
+  m_Name: WeaponHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &955032592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955032591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2349258150803145996}
+  - {fileID: 543450652483811602}
+  - {fileID: 7617103563398100387}
+  m_Father: {fileID: 614953115}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &955032593
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955032591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4adfc0a5ec0bac2419b6e9f1860aa6e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!198 &1038373404 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
@@ -8260,7 +8315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 8554655104631171556, guid: 7c398f5418bd2f04b81e1c57ed67670e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8297,7 +8352,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520346139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
@@ -19069,13 +19124,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148230792104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.516, y: -0.397, z: 0.672}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.51599973, y: -0.39700004, z: 0.672}
+  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3082180064389352097}
   - {fileID: 1712320026}
-  m_Father: {fileID: 614953115}
+  m_Father: {fileID: 955032592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &625961377001992009
@@ -19166,6 +19221,7 @@ GameObject:
   - component: {fileID: 485797257}
   - component: {fileID: 919132148230792105}
   - component: {fileID: 919132148230792106}
+  - component: {fileID: 919132148230792107}
   m_Layer: 0
   m_Name: AK
   m_TagString: Weapon
@@ -19285,6 +19341,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &919132148230792107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148230792104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d7660f8bb2e994d8046ec69cf70df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  currentAmmo: 0
+  isReloading: 0
+  animator: {fileID: 955032593}
 --- !u!1 &946202004225152651
 GameObject:
   m_ObjectHideFlags: 0
@@ -19852,7 +19924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3157565929636782006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.516, y: -0.397, z: 0.672}
+  m_LocalPosition: {x: 0.51599973, y: -0.39700004, z: 0.672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19866,7 +19938,7 @@ Transform:
   - {fileID: 2680023649233760878}
   - {fileID: 2322742581666785701}
   - {fileID: 869609499}
-  m_Father: {fileID: 614953115}
+  m_Father: {fileID: 955032592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2388024072849033827
@@ -20049,6 +20121,7 @@ GameObject:
   - component: {fileID: 2349258150803145996}
   - component: {fileID: 803876355}
   - component: {fileID: 3157565929636782007}
+  - component: {fileID: 3157565929636782008}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Weapon
@@ -20072,6 +20145,22 @@ MonoBehaviour:
   impactEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d,
     type: 3}
   player: {fileID: 0}
+--- !u!114 &3157565929636782008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157565929636782006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d7660f8bb2e994d8046ec69cf70df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  currentAmmo: 0
+  isReloading: 0
+  animator: {fileID: 955032593}
 --- !u!4 &3377128831423130660
 Transform:
   m_ObjectHideFlags: 0
@@ -21020,6 +21109,7 @@ GameObject:
   - component: {fileID: 7617103563398100387}
   - component: {fileID: 7617103563398100390}
   - component: {fileID: 7617103563398100391}
+  - component: {fileID: 7617103563398100392}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Weapon
@@ -21212,8 +21302,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7133336745772642073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.54, y: -0.356, z: 0.618}
-  m_LocalScale: {x: 1.33, y: 1.33, z: 1.33}
+  m_LocalPosition: {x: 0.54000014, y: -0.3560001, z: 0.618}
+  m_LocalScale: {x: 1.3299999, y: 1.3299999, z: 1.3299999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4654414415537862519}
@@ -21224,7 +21314,7 @@ Transform:
   - {fileID: 6013547612140485030}
   - {fileID: 7571488378022566154}
   - {fileID: 1737679867}
-  m_Father: {fileID: 614953115}
+  m_Father: {fileID: 955032592}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7617103563398100390
@@ -21242,7 +21332,7 @@ MonoBehaviour:
   weaponName: 
   damage: 8
   ammo: 8
-  reloading: 0
+  reloadTime: 1
   aspect1: Wood
   aspect2: Cardboard
   powerUP: 
@@ -21262,6 +21352,22 @@ MonoBehaviour:
   impactEffect: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3,
     type: 3}
   player: {fileID: 0}
+--- !u!114 &7617103563398100392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133336745772642073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d7660f8bb2e994d8046ec69cf70df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  currentAmmo: 0
+  isReloading: 0
+  animator: {fileID: 955032593}
 --- !u!4 &7642265895738345494
 Transform:
   m_ObjectHideFlags: 0

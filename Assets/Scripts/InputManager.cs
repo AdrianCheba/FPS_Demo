@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerLook playerLook;
     public PlayerInput.OnFootActions onFoot;
-    public WeaponsSwap swapWeapon;
+    public WeaponSwap swapWeapon;
 
     void Awake()
     {
@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
         onFoot = playerInput.OnFoot;
         playerMovement = GetComponent<PlayerMovement>();
         playerLook = GetComponent<PlayerLook>();
-        swapWeapon = GetComponent<WeaponsSwap>();
+        swapWeapon = GetComponent<WeaponSwap>();
         onFoot.Jump.performed += ctx => playerMovement.Jump();
         onFoot.WeaponSwap.performed += ctx => swapWeapon.SwapWeapon();
     }

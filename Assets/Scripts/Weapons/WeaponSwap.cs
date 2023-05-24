@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponsSwap : MonoBehaviour
+public class WeaponSwap : MonoBehaviour
 {
     public GameObject[] weapons;
     public int currenWeapon = 0;

@@ -12,7 +12,7 @@ public class PlayerInteract : MonoBehaviour
     private PlayerUI playerUI;
     private InputManager inputManager;
     public GameObject weapon;
-    
+
     public RaycastHit hit;
 
     void Start()
@@ -26,6 +26,9 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
+        weapon = GameObject.FindGameObjectWithTag("Weapon");
+        if (weapon.GetComponent<WeaponReload>().isReloading) return;
+
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
         playerUI.UpdatePowerUPText(string.Empty);
