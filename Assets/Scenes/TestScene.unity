@@ -991,8 +991,8 @@ GameObject:
   m_Component:
   - component: {fileID: 112812712}
   - component: {fileID: 115113388}
-  - component: {fileID: 115113390}
   - component: {fileID: 115113389}
+  - component: {fileID: 115113390}
   m_Layer: 6
   m_Name: WoodCrate
   m_TagString: Target
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 113082804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71680874bbf853b4b9085a1f3752c9de, type: 3}
+  m_Script: {fileID: 11500000, guid: e4ef93610a812bf43a14bd45b7eb36b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Wood Crate
@@ -9911,23 +9911,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1768e940ef5fa2d4093cb81fb56533a0, type: 3}
---- !u!114 &1463366223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463366221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e48274ba3f6d384c82fdc9ab34e5779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  promptMessage: Toxic Barrel           Steel
-  maxHP: 100
-  currentHP: 100
-  weapon: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &1463366224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9955,6 +9938,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 198000011207180499}
   leaq: {fileID: 198000011126849395}
+--- !u!114 &1463366226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463366221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d6b45b18d909c478cf83545157c71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptMessage: Toxic Barrel       Steel
+  maxHP: 100
+  currentHP: 100
+  weapon: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1520346139
 GameObject:
   m_ObjectHideFlags: 0

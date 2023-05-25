@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToxicBarrel : Interactable
+public class Wood : Interactable
 {
     public GameObject weapon;
     public GameObject player;
 
     private DestroyInterface[] scripts;
     private List<DestroyInterface> destroyEffects = new();
-
-
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        maxHP = 70f;
-        currentHP = 70f;
+        maxHP = 100f;
+        currentHP = 100f;
 
         scripts = GetComponents<DestroyInterface>();
 
@@ -25,12 +23,13 @@ public class ToxicBarrel : Interactable
 
             AddEffects(obj);
         }
+
     }
     protected override void Interact()
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon");
 
-        if (weapon.GetComponent<WeaponsData>().aspect1 == "Toxic" || weapon.GetComponent<WeaponsData>().aspect2 == "Toxic" || weapon.GetComponent<WeaponsData>().powerUP == "Toxic PowerUP")
+        if (weapon.GetComponent<WeaponsData>().aspect1 == "Wood" || weapon.GetComponent<WeaponsData>().aspect2 == "Wood")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
             weapon.GetComponent<WeaponsData>().ammo--;
@@ -39,12 +38,13 @@ public class ToxicBarrel : Interactable
             if (currentHP <= 0)
             {
                 MakeEffects();
+                gameObject.SetActive(false);
             }
         }
         else
         {
-             player.GetComponent<PlayerUI>().UpdateHelpText("This weapon can't destroy that target ");
-             Invoke("ClearHelpText", 0.75f);
+            player.GetComponent<PlayerUI>().UpdateHelpText("This weapon can't destroy that target ");
+            Invoke("ClearHelpText", 0.75f);
         }
 
     }
