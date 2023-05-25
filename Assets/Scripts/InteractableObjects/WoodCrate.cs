@@ -29,7 +29,7 @@ public class WoodCrate: Interactable
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon");
 
-        if (weapon.GetComponent<WeaponsData>().aspect1 == "Toxic" || weapon.GetComponent<WeaponsData>().aspect2 == "Toxic")
+        if (weapon.GetComponent<WeaponsData>().aspect1 == "Wood" || weapon.GetComponent<WeaponsData>().aspect2 == "Wood")
         {
             currentHP -= weapon.GetComponent<WeaponsData>().damage;
             weapon.GetComponent<WeaponsData>().ammo--;

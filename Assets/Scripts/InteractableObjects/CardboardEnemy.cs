@@ -39,7 +39,6 @@ public class CardboardEnemy: Interactable
             if (currentHP <= 0)
             {
                 MakeEffects();
-                this.gameObject.SetActive(false);
             }
         }
         else
