@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - ImpactEffect
   - ExplosiveBarrelEffect
+  - ToxicBarrelEffect
+  - ToxicSprayEffect
   layers:
   - Default
   - TransparentFX
