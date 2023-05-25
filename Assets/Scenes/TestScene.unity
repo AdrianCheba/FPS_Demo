@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e48274ba3f6d384c82fdc9ab34e5779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Toxic Barrel      Steal
+  promptMessage: Toxic Barrel    Steel
   maxHP: 100
   currentHP: 100
   weapon: {fileID: 0}
@@ -2829,8 +2829,8 @@ GameObject:
   m_Component:
   - component: {fileID: 810892895}
   - component: {fileID: 808460635}
-  - component: {fileID: 810892896}
   - component: {fileID: 810892897}
+  - component: {fileID: 810892898}
   m_Layer: 6
   m_Name: 'AmmoCrate '
   m_TagString: Target
@@ -2872,7 +2872,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &810892896
+--- !u!114 &810892897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810671427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de526a3c798c7b941a27772a0397f7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCrate: {fileID: 0}
+--- !u!114 &810892898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2889,19 +2902,6 @@ MonoBehaviour:
   currentHP: 100
   weapon: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &810892897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810671427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de526a3c798c7b941a27772a0397f7c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openCrate: {fileID: 0}
 --- !u!4 &810893011
 Transform:
   m_ObjectHideFlags: 0
