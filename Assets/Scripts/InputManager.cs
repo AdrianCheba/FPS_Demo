@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     private PlayerLook playerLook;
     public PlayerInput.OnFootActions onFoot;
     public WeaponSwap swapWeapon;
+    public GameObject bullet;
 
     void Awake()
     {
@@ -18,10 +19,12 @@ public class InputManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerLook = GetComponent<PlayerLook>();
         swapWeapon = GetComponent<WeaponSwap>();
+        bullet = GameObject.FindGameObjectWithTag("Bullet");
         onFoot.Jump.performed += ctx => playerMovement.Jump();
         onFoot.Sprint.performed += ctx => playerMovement.Sprint();
         onFoot.Crouch.performed += ctx => playerMovement.Crouch();
         onFoot.WeaponSwap.performed += ctx => swapWeapon.SwapWeapon();
+        onFoot.FillAmmo.performed += ctx => bullet.GetComponent<Bullet>().FillAmmo();
     }
 
     

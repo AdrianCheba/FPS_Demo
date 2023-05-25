@@ -89,6 +89,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FillAmmo"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b96b699-857c-444f-b97d-291ba40c27a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -333,6 +342,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""716755f3-4149-42e6-9ed7-c7d806bae6b4"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FillAmmo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a103a908-479f-4939-8e82-8f422e2b1d58"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FillAmmo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +379,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_WeaponSwap = m_OnFoot.FindAction("WeaponSwap", throwIfNotFound: true);
+        m_OnFoot_FillAmmo = m_OnFoot.FindAction("FillAmmo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -414,6 +446,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Look;
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_WeaponSwap;
+    private readonly InputAction m_OnFoot_FillAmmo;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -425,6 +458,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
         public InputAction @WeaponSwap => m_Wrapper.m_OnFoot_WeaponSwap;
+        public InputAction @FillAmmo => m_Wrapper.m_OnFoot_FillAmmo;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,6 +489,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @WeaponSwap.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnWeaponSwap;
                 @WeaponSwap.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnWeaponSwap;
                 @WeaponSwap.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnWeaponSwap;
+                @FillAmmo.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
+                @FillAmmo.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
+                @FillAmmo.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
             }
             m_Wrapper.m_OnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +517,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @WeaponSwap.started += instance.OnWeaponSwap;
                 @WeaponSwap.performed += instance.OnWeaponSwap;
                 @WeaponSwap.canceled += instance.OnWeaponSwap;
+                @FillAmmo.started += instance.OnFillAmmo;
+                @FillAmmo.performed += instance.OnFillAmmo;
+                @FillAmmo.canceled += instance.OnFillAmmo;
             }
         }
     }
@@ -493,5 +533,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnWeaponSwap(InputAction.CallbackContext context);
+        void OnFillAmmo(InputAction.CallbackContext context);
     }
 }

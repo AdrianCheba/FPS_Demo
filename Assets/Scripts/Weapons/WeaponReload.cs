@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WeaponReload : MonoBehaviour
 {
-    [SerializeField]
-    int maxAmmo;
+    public int maxAmmo;
     [SerializeField]
     int currentAmmo;
     public bool isReloading = false;

@@ -12,6 +12,7 @@ TagManager:
   - ExplosiveBarrelEffect
   - ToxicBarrelEffect
   - ToxicSprayEffect
+  - Bullet
   layers:
   - Default
   - TransparentFX

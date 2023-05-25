@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodCrateEffect : MonoBehaviour
+public class WoodCrateEffect : MonoBehaviour, DestroyInterface
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject openCrate;
+
+    private void Start()
     {
-        
+        openCrate = GameObject.Find("AmmoCrateOpen");
+        openCrate.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MakeEffect()
     {
-        
+        gameObject.SetActive(false);
+        openCrate.SetActive(true); 
     }
 }

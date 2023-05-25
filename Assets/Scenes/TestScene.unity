@@ -2153,6 +2153,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d9ab20c0dc3d4114ea1ff1b373d18711,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ab20c0dc3d4114ea1ff1b373d18711, type: 3}
 --- !u!4 &572497913 stripped
@@ -2167,8 +2172,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 572497912}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &572497915
-MeshCollider:
+--- !u!114 &572497916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572497914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7089fbce0e9492f43a4d101fc7462548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptMessage: Press F to fill ammo
+  maxHP: 100
+  currentHP: 100
+--- !u!65 &572497917
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2177,10 +2197,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5329809369554974377, guid: d9ab20c0dc3d4114ea1ff1b373d18711, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.038686182, y: 0.04414855, z: 0.07932567}
+  m_Center: {x: 0, y: -0.0000000010328807, z: 0.0043322165}
 --- !u!4 &614953115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 223280149541718082, guid: be03b2dd3e0d42b43a1cb3d858f188ba,
@@ -2678,6 +2697,7 @@ GameObject:
   - component: {fileID: 810892895}
   - component: {fileID: 808460635}
   - component: {fileID: 810892896}
+  - component: {fileID: 810892897}
   m_Layer: 6
   m_Name: 'AmmoCrate '
   m_TagString: Target
@@ -2736,6 +2756,19 @@ MonoBehaviour:
   currentHP: 100
   weapon: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &810892897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810671427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de526a3c798c7b941a27772a0397f7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCrate: {fileID: 0}
 --- !u!4 &810893011
 Transform:
   m_ObjectHideFlags: 0
@@ -9536,7 +9569,7 @@ GameObject:
   - component: {fileID: 1388273045}
   - component: {fileID: 1388273044}
   m_Layer: 0
-  m_Name: 'AmmoCrate '
+  m_Name: AmmoCrateOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9562,8 +9595,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388273042}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 13.273, y: 0.51, z: 4.364362}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 9.99, y: 0.51, z: 4.364362}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9804,6 +9837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swapWeapon: {fileID: 0}
+  bullet: {fileID: 0}
 --- !u!114 &1575034267
 MonoBehaviour:
   m_ObjectHideFlags: 0
