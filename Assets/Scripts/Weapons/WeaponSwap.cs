@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSwap : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class WeaponSwap : MonoBehaviour
     public int currenWeapon = 0;
     private bool disableWeapons = true;
 
+    [SerializeField]
+    Image weaponImage;
+    [SerializeField]
+    Sprite[] weaponsImages;
+
     private void Awake()
     {
         weapons = GameObject.FindGameObjectsWithTag("Weapon");
         weapons[0].SetActive(true);
+        weaponImage.sprite = weaponsImages[currenWeapon];
     }
 
     private void Update()
@@ -32,6 +39,7 @@ public class WeaponSwap : MonoBehaviour
         {
             weapons[0].SetActive(true);
             weapons[weapons.Length - 1].SetActive(false);
+            weaponImage.sprite = weaponsImages[currenWeapon];
 
             currenWeapon++;
         }
@@ -39,6 +47,7 @@ public class WeaponSwap : MonoBehaviour
         {
             weapons[currenWeapon - 1].SetActive(false);
             weapons[currenWeapon].SetActive(true);
+            weaponImage.sprite = weaponsImages[currenWeapon];
 
             currenWeapon++;
         }
