@@ -98,6 +98,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""30294252-966a-48b1-bb29-b13485145472"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -364,6 +373,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""FillAmmo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3da605ed-f562-41bf-b567-ecebbc1711f0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ab44e0c-f823-48d7-81ee-5f6b50c69966"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -380,6 +411,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_WeaponSwap = m_OnFoot.FindAction("WeaponSwap", throwIfNotFound: true);
         m_OnFoot_FillAmmo = m_OnFoot.FindAction("FillAmmo", throwIfNotFound: true);
+        m_OnFoot_Pause = m_OnFoot.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -447,6 +479,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_WeaponSwap;
     private readonly InputAction m_OnFoot_FillAmmo;
+    private readonly InputAction m_OnFoot_Pause;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -459,6 +492,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
         public InputAction @WeaponSwap => m_Wrapper.m_OnFoot_WeaponSwap;
         public InputAction @FillAmmo => m_Wrapper.m_OnFoot_FillAmmo;
+        public InputAction @Pause => m_Wrapper.m_OnFoot_Pause;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -492,6 +526,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @FillAmmo.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
                 @FillAmmo.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
                 @FillAmmo.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnFillAmmo;
+                @Pause.started -= m_Wrapper.m_OnFootActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_OnFootActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_OnFootActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_OnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -520,6 +557,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @FillAmmo.started += instance.OnFillAmmo;
                 @FillAmmo.performed += instance.OnFillAmmo;
                 @FillAmmo.canceled += instance.OnFillAmmo;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -534,5 +574,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnWeaponSwap(InputAction.CallbackContext context);
         void OnFillAmmo(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
